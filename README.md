@@ -1,1 +1,1 @@
-https://github.com/pemolyuks/zakrivayuschiy-teg-fs
+https://github.com/pemolyuks/zakrivayuschiy-teg-f

@@ -1,0 +1,23 @@
+:root {
+  --main-font: "Inter", sans-serif;
+  --accent-font: "PressStart2P", fantasy;
+  --section-width: clamp(23.438rem, 16.285rem + 30.516vw, 43.75rem);
+  --grid-background: repeating-linear-gradient(
+      90deg,
+      #d3d3d3 0 2px,
+      rgb(0 0 0 / 0) 2px 4px
+    ),
+    repeating-linear-gradient(180deg, #d3d3d3 0 2px, rgb(0 0 0 / 0) 2px 4px),
+    linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
+  --main-size: 18px;
+  --card-padding: 25px;
+  --stroke-color: #fff;
+  --contour-color: #000000;
+  --core-color: transparent;
+  --main-body-color: transparent;
+  --sparks-color: #ff0000;
+  --animation-fill-color: #ff0000;
+  --button-text-size: 14px;
+  --button-transition: 0.5s ease-in-out;
+  --button-shadow-focus: 2px 2px 0 var(--contour-color);
+}

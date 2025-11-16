@@ -1,0 +1,147 @@
+/* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
+
+*/
+/* Анимации для сердечка */
+@keyframes heart-scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes body-later {
+  0% {
+    --main-body-color: transparent;
+  }
+  100% {
+    --main-body-color: #ff0000;
+  }
+}
+
+@keyframes contour-red {
+  0% {
+    --contour-color: #000000;
+  }
+  100% {
+    --contour-color: #ff0000;
+  }
+}
+
+@keyframes sparks-opacity {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hover-fill {
+  0% {
+    --main-body-color: transparent;
+  }
+  100% {
+    --main-body-color: #000000;
+  }
+}
+
+@keyframes hover-contour {
+  0% {
+    --contour-color: #000000;
+  }
+  100% {
+    --contour-color: #000000;
+  }
+}
+
+@keyframes active-main-body {
+  0% {
+    --main-body-color: transparent;
+  }
+  10% {
+    --main-body-color: #000000;
+  }
+  40% {
+    --main-body-color: #000000;
+  }
+  50% {
+    --main-body-color: transparent;
+  }
+  60% {
+    --main-body-color: transparent;
+  }
+  70% {
+    --main-body-color: #ff0000;
+  }
+  100% {
+    --main-body-color: #ff0000;
+  }
+}
+
+@keyframes active-core-final {
+  0% {
+    --core-color: transparent;
+  }
+  10% {
+    --core-color: transparent;
+  }
+  20% {
+    --core-color: #ff0000;
+  }
+  60% {
+    --core-color: #ff0000;
+  }
+  70% {
+    --core-color: #ff0000;
+  }
+  100% {
+    --core-color: #ff0000;
+  }
+}
+
+/* Анимации для диалога */
+@keyframes dialog-show {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+}
+
+@keyframes dialog-hide {
+  0% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.dialog[open] {
+  animation: dialog-show 0.3s ease-out;
+}
+
+.dialog.closing {
+  animation: dialog-hide 0.3s ease-in;
+}

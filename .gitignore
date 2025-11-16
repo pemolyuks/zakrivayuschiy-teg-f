@@ -1,0 +1,16 @@
+# Игнорировать ВСЁ кроме файлов этого проекта
+/*
+!/.gitignore
+!/.github/
+!/README.md
+!/fonts/
+!/images/
+!/index.html
+!/scripts/
+!/styles/
+!/svg/# Игнорировать системные файлы
+.DS_Store
+Thumbs.db
+*.log
+Desktop.ini
+

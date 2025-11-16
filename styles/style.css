@@ -1,0 +1,459 @@
+/* Здесь вы напишете основную часть стилей страницы. 
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом: 
+✦ like-icon — для svg-иконки анимированного сердца 
+✦ card__like-button — для кнопки Like рядом с иконкой 
+✦ card__icon-button — для кнопки, оборачивающей иконку 
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца 
+✦ button__text — для обозначения текстового элемента внутри кнопки 
+*/ 
+
+@supports (-webkit-text-stroke: 1px white) or (text-stroke: 0.1px white) {
+  .label {
+    -webkit-text-stroke: 0.1px var(--stroke-color, white);
+    text-stroke: 1px var(--stroke-color, white);
+  }
+}
+
+@supports not ((-webkit-text-stroke: 1px white) or (text-stroke: 1px white)) {
+  .label {
+    text-shadow: 
+      -1px -1px 0 var(--stroke-color, white),
+      1px -1px 0 var(--stroke-color, white),
+      -1px 1px 0 var(--stroke-color, white),
+      1px 1px 0 var(--stroke-color, white);
+  }
+}
+
+.page {
+  min-inline-size: 320px;
+  min-block-size: 100dvb;
+  max-inline-size: 1440px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  max-width: 1440px;
+  background-image: var(
+    --grid-background,
+    repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(180deg, #d3d3d3 0 2px, transparent 2px 4px),
+    linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%)
+  );
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: white;
+  background-repeat: no-repeat;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin-block-end: 100px;
+}
+
+.logo-group {
+  margin-block-start: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-family: var(--accent-font, "PressStart2P", fantasy);
+  border: 2px solid black;
+  padding-block: clamp(7.625rem, 7.449rem + 0.751vw, 8.125rem);
+  block-size: clamp(20.438rem, 19.535rem + 3.85vw, 23rem);
+  inline-size: var(
+    --section-width,
+    clamp(23.438rem, 16.285rem + 30.516vw, 43.75rem)
+  );
+  background-color: white;
+  isolation: isolate;
+}
+
+.logo {
+  font-size: clamp(3.063rem, 2.71rem + 1.502vw, 4.063rem);
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-discription {
+  font-size: clamp(0.875rem, 0.677rem + 0.845vw, 1.438rem);
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.sprint {
+  background-color: white;
+  margin-inline: clamp(0rem, -8.143rem + 34.742vw, 23.125rem);
+  border: 2px solid black;
+  min-block-size: clamp(47.375rem, 43.0176rem + 18.5915vw, 59.75rem);
+  padding-block-end: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  display: flex;
+  font-family: var(--main-font, "Inter", sans-serif);
+  font-size: var(--main-size, 18px);
+  line-height: 1.2;
+  padding-inline-start: clamp(0.5rem, 0.456rem + 0.188vw, 0.625rem);
+  align-items: center;
+  padding-block-start:2.7px;
+  padding-block-end:5px;
+}
+
+.sprint:first-of-type .section-title {
+  inline-size: clamp(17.5rem, 8.785rem + 37.183vw, 42.25rem);
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding-inline: 25px;
+  padding-block: var(--card-padding);
+}
+
+.text-content p {
+  font-family: var(--main-font, "Inter", sans-serif);
+  font-size: var(--main-size, 18px);
+  line-height: 1.16;
+}
+
+.uncertainty {
+  filter: saturate(30%);
+}
+
+.strategy {
+  filter: sepia(0.85) saturate(0.8) brightness(1.1) contrast(1.1);
+}
+
+.neon {
+  filter: saturate(2.5) contrast(1.5) hue-rotate(10deg) brightness(1.1);
+}
+
+.ideal {
+  filter: hue-rotate(30deg) contrast(0.9);
+}
+
+.image-wrapper {
+  display: grid;
+  grid-template-areas: "overlay";
+  border-block-end: 2px solid black;
+  border-block-start: 2px solid black;
+  clip-path: inset(0);
+}
+
+.image-wrapper img,
+.image-wrapper .label {
+  grid-area: overlay;
+}
+
+.image-wrapper .label {
+  justify-self: end;
+  align-self: start;
+  padding: 25px 27px;
+  font-size: 14px;
+  font-weight: bold;
+  mix-blend-mode: hard-light;
+  font-family: var(--accent-font, "PressStart2P", fantasy);
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.here {
+  block-size: 696px;
+  inline-size: 696px;
+  filter: hue-rotate(90deg) brightness(0.8) contrast(0.4) saturate(2) blur(1.5px);
+}
+
+.blind {
+  filter: invert(100%) contrast(0.5) brightness(1.1);
+}
+
+.fail {
+  filter: blur(15px);
+}
+
+.card__buttons {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  justify-content: flex-end;
+  padding-inline-end: 25px;
+  margin-block-start: auto;
+}
+
+.card__icon-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  inline-size: 40px;
+  block-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border 0.3s ease;
+}
+
+.card__icon-button:focus {
+  outline: none;
+  border: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--contour-color, #000000);
+}
+
+.button-main {
+  background: var(--stroke-color, #fff);
+  border: 2px solid var(--contour-color, #000000);
+  cursor: pointer;
+  font-family: var(--accent-font, "PressStart2P", fantasy);
+  font-size: var(--button-text-size, 14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.button-main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--contour-color, #000000);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+  z-index: 0;
+}
+
+.button-main:hover::before {
+  transform: scaleX(1);
+}
+
+.button-main .button__text {
+  position: relative;
+  z-index: 1;
+  color: var(--stroke-color, #fff);
+  mix-blend-mode: difference;
+}
+
+.disk {
+  position: relative;
+  z-index: 1;
+  color: var(--stroke-color, #fff);
+  mix-blend-mode: difference;
+}
+
+.button-main:focus {
+  outline: none;
+  box-shadow: var(
+    --button-shadow-focus,
+    2px 2px 0 var(--contour-color, #000000)
+  );
+}
+
+.card__like-button {
+  inline-size: 130px;
+  block-size: 40px;
+}
+
+.save-button {
+  inline-size: 335px;
+  block-size: 55px;
+  gap: 10px;
+  margin-block-end: 100px;
+}
+
+.like-icon {
+  width: 40px;
+  height: 35px;
+  transform-origin: center;
+  cursor: pointer;
+}
+
+.like-icon .sparks {
+  opacity: 0;
+}
+
+.like-icon.is-liked {
+  animation: heart-scale 0.3s ease-in 0.2s;
+}
+
+.like-icon.is-liked .core {
+  --core-color: #ff0000;
+}
+
+.like-icon.is-liked .main-body {
+  animation: body-later 0.1s ease-in 0.1s forwards;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks-opacity 0.3s ease-in 0.5s;
+}
+
+.like-icon.is-liked .contour {
+  animation: contour-red 0.1s ease-in 0.1s forwards;
+}
+
+.card__icon-button:hover .like-icon:not(.is-liked) .core {
+  --core-color: #000000;
+}
+
+.card__icon-button:hover .like-icon:not(.is-liked) .main-body {
+  animation: hover-fill 0.1s ease 0.1s forwards;
+}
+
+.card__icon-button:hover .like-icon:not(.is-liked) .contour {
+  animation: hover-contour 0.1s ease 0.1s forwards;
+}
+
+.card__icon-button:active .like-icon:not(.is-liked) {
+  position: relative;
+}
+
+.card__icon-button:active .like-icon:not(.is-liked) .main-body {
+  animation: active-main-body 0.8s ease forwards;
+}
+
+.card__icon-button:active .like-icon:not(.is-liked) .core {
+  animation: active-core-final 0.8s ease forwards;
+}
+
+.card__icon-button:active .like-icon:not(.is-liked) .contour {
+  --contour-color: #000000;
+}
+
+.like-icon .core,
+.like-icon .main-body,
+.like-icon .contour {
+  transition: all 0.3s ease;
+}
+
+.card__icon-button:active .like-icon:not(.is-liked) .core,
+.card__icon-button:active .like-icon:not(.is-liked) .main-body,
+.card__icon-button:active .like-icon:not(.is-liked) .contour {
+  transition: none;
+}
+
+.save-container {
+  display: flex;
+  justify-content: center;
+}
+
+.save-container .button__text {
+  padding-block-start: 3px;
+}
+
+.dialog[open] {
+  border: 2px solid var(--contour-color, #000000);
+  background: var(--stroke-color, #fff);
+  padding: 28px;
+  inline-size: clamp(341px, 341px + (353 - 341) * ((100vw - 375px) / (1440 - 375)), 353px);
+  min-inline-size: 341px;
+  max-inline-size: 353px;
+  opacity: 1;
+}
+
+.dialog::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.dialog-content {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto 1fr;
+  gap: 30px 20px;
+  align-items: center;
+  inline-size: 100%;
+}
+
+.save-disk {
+  grid-row: 1;
+  grid-column: 1;
+  width: 39px;
+  height: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog__title {
+  grid-row: 1;
+  grid-column: 2;
+  font-family: var(--accent-font, "PressStart2P", fantasy);
+  font-size: 14px;
+  color: var(--contour-color, #000000);
+  text-align: start;
+  margin: 0;
+  text-transform: uppercase;
+  line-height: 150%;
+  align-self: center;
+}
+
+.approved {
+  grid-row: 2;
+  grid-column: 1 / -1;
+  inline-size: clamp(257px, 257px + (293 - 257) * ((100vw - 375px) / (1440 - 375)), 293px);
+  block-size: 38px;
+  justify-self: center;
+}
+
+.sprint:not(:last-of-type) {
+  margin-block-end: clamp(
+    3.125rem,
+    calc(3.125rem + 0.125 * ((100vw - 375px) / 1065)),
+    3.25rem
+  );
+}
+
+.sprint:last-of-type {
+  margin-block-end: 50px;
+}
+
+.section-image {
+  inline-size: clamp(23.188rem, 16.035rem + 30.516vw, 43.5rem);
+  block-size: clamp(23.188rem, 16.035rem + 30.516vw, 43.5rem);
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+@media (max-width: 375px) {
+  .save-button {
+    inline-size: 306px;
+    block-size: 84px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .disk {
+    flex: none;
+    transform: scale(1.5);
+  }
+
+  .button__text {
+    margin-block-start: 0;
+  }
+
+  .dialog[open] {
+    padding: 30px 40px;
+    inline-size: 341px;
+    margin-inline: auto;
+  }
+
+  .approved {
+    inline-size: 260px;
+  }
+
+  .text-content p {
+    line-height: 1.16;
+  }
+}
